@@ -49,7 +49,7 @@ class TSF(object):
                 plt.title(args.name+'_column:'+str(args.TSF_column[i])+'_last')
                 plt.plot(x,true_plot[:,i],color='green',label='true')
                 plt.plot(x,pred_plot[:,i],color='cyan',label='pred')
-                plt.savefig(r'../result/'+args.name+'_'+'column'+str(args.TSF_column[i])+'_last.jpg')
+                plt.savefig('../result/'+args.name+'_'+'column'+str(args.TSF_column[i])+'_last.png')
                 plt.show()
 
 class OD(object):
@@ -115,6 +115,7 @@ class OD(object):
                 cv2.imshow(name_all[i]+': NMS', img)
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
+                cv2.imwrite('../result/' + args.name + '_' + name_all[i], img*255)
 
  # ------------------------------------------------------------------------------------------------------------------ #
 def test_get_loader(args,dict_dataset):
