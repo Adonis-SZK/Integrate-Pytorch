@@ -18,16 +18,19 @@
 >```
 >'--model', default='LSTM'
 >'--model_param', default=[64,2] #[LSTM输出维度,LSTM层数]
+>'--loss', default='mae'
 >```
 >&#10003;LSTM_CNN  
 >```
 >'--model', default='LSTM_CNN'
 >'--model_param', default=[64,2] #[LSTM输出维度,LSTM层数]
+>'--loss', default='mae'
 >```
 >&#10003;SCINet  
 >```
 >'--model', default='SCINet'
 >'--model_param', default=[3,1] #[奇偶分解层数，模型堆叠数]
+>'--loss', default='mae'
 >```
 >&#10003;待更新中...
 ***
@@ -37,7 +40,7 @@
 >'--model', default='YOLO5'
 >'--model_param', default=[16,1] #[第一层输出维度,C3层残差数] #YOLO5n[16,1],YOLO5s[32,1],YOLO5m[48,2],YOLO5l[64,3],YOLO5x[80,4]
 >'--loss', default='YOLO5'
->'--loss_param', default=[[1/3,1/3,1/3],[0.4,0.4,0.2],[0.4,0.4,0.2],[0.5,0.3,0.2]] #[三个输出层权重,3*每层中边框、置信度、分类权重]
+>'--loss_param', default=[[1/3,1/3,1/3],[0.3,0.4,0.3],[0.4,0.4,0.2],[0.5,0.3,0.2]] #[三个输出层权重,3*每层中边框、置信度、分类权重]
 >'--OD_output', default=[[80,40,20],[3]]
 >'--OD_anchor', default=[[[10,13],[16,30],[33,23]],[[30,61],[62,45],[59,119]],[[116,90],[156,198],[373,326]]]
 >```
