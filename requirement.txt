@@ -1,0 +1,5 @@
+(兼容性较强)
+torch:1.8.0
+matplotlib:3.5.1
+tensorboard:2.9.1
+opencv-python:4.6.0.66
