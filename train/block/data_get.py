@@ -85,7 +85,7 @@ class OD(object):
                     class_dict[class_name[j]][3] = max(class_dict[class_name[j]][2], frame[j, 2])
                     class_dict[class_name[j]][4] = max(class_dict[class_name[j]][4], frame[j, 3])
             confidence=np.zeros((len_df_label,1),dtype=np.float32)
-            self.list_label[i]=[df_label['name'][0],np.concatenate((frame,confidence,class_onehot),axis=1)]
+            self.list_label[i]=[df_label['name'][0].split('.')[0],np.concatenate((frame,confidence,class_onehot),axis=1)]
         self.dict_dataset={}
         self.dict_dataset['class_list']=class_list
         self.dict_dataset['class_dict']=class_dict
