@@ -63,12 +63,12 @@ class OD(object):
         class_list=[]
         class_dict = {}
         for i in range(self.len_data):
-            img=(cv2.imread(path_img+'/'+dir_img[i])/255).astype(np.float32)
-            self.list_img[i] = img
             df_label=pd.read_csv(path_label+'/'+dir_label[i])
             len_df_label=len(df_label)
             frame=df_label[['Cx','Cy','w','h']].values.astype(np.int32)
+            img=(cv2.imread(path_img+'/'+dir_img[i])/255).astype(np.float32)
             img,frame=self._resize(img,frame)
+            self.list_img[i] = img
             class_name=df_label['class'].values
             class_onehot=np.zeros((len_df_label,args.OD_class),dtype=np.float32)
             class_onehot[:,:]=args.OD_smooth[0]
