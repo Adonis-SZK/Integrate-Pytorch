@@ -116,7 +116,6 @@ class OD(object):
                     cv2.rectangle(img, (_xy[j][0],_xy[j][1]), (_xy[j][2],_xy[j][3]),color=(0,255,0), thickness=2)
                     cv2.putText(img,dict_dataset['class_list'][_class[j]], (_xy[j][0]+3,_xy[j][1]+10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 255, 0), 1)
-                    print(1)
                 cv2.imshow(name_all[i]+'_NMS_'+str(len(choose))+'frame', img)
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
