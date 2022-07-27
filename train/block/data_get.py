@@ -110,9 +110,9 @@ class OD(object):
             add_y = (w - h) // 2
             img = cv2.copyMakeBorder(img, add_y, w - h - add_y, 0, 0, cv2.BORDER_CONSTANT, value=(0, 0, 0))
             frame[:,0] = frame[:,0] * w / w0
-            frame[:,1] = frame[:,1]['Cy'].values * h / h0 + add_y
-            frame[:,2] = frame[:,2]['w'].values * w / w0
-            frame[:,3] = frame[:,3]['h'].values * h / h0
+            frame[:,1] = frame[:,1] * h / h0 + add_y
+            frame[:,2] = frame[:,2] * w / w0
+            frame[:,3] = frame[:,3] * h / h0
         else:  # 宽小于高
             w = int(len(img[0]) * self.args.OD_size / len(img))
             h = self.args.OD_size
@@ -120,9 +120,9 @@ class OD(object):
             add_x = (h - w) // 2
             img = cv2.copyMakeBorder(img, 0, 0, add_x, h - w - add_x, cv2.BORDER_CONSTANT, value=(0, 0, 0))
             frame[:, 0] = frame[:, 0] * w / w0 + add_x
-            frame[:, 1] = frame[:, 1]['Cy'].values * h / h0
-            frame[:, 2] = frame[:, 2]['w'].values * w / w0
-            frame[:, 3] = frame[:, 3]['h'].values * h / h0
+            frame[:, 1] = frame[:, 1] * h / h0
+            frame[:, 2] = frame[:, 2] * w / w0
+            frame[:, 3] = frame[:, 3] * h / h0
         return img,frame
 
 
