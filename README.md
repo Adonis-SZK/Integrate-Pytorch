@@ -49,5 +49,5 @@
 &#9733;其他
 >&#10003;项目github地址:https://github.com/TWK2022/Integrate-Pytorch  
 >&#10003;作者: TWK2022  
->&#10003;QQ及邮箱: 1024565378@qq.com  
+>&#10003;QQ: 1413973348  
 ***
