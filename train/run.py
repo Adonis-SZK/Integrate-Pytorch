@@ -33,7 +33,7 @@ parser.add_argument('--epoch', default=100, type=int,help='|训练轮数|')
 parser.add_argument('--batch', default=8, type=int,help='|训练批量大小|')
 parser.add_argument('--loss', default='YOLO5', type=str, choices=['mae','mse','YOLO5'],help='|损失函数|')
 parser.add_argument('--loss_param', default=[[1/3,1/3,1/3],[0.4,0.4,0.2],[0.4,0.4,0.2],[0.5,0.3,0.2]], type=list, help='|损失权重|')
-parser.add_argument('--lr', default=0.001, type=int,help='|初始学习率|')
+parser.add_argument('--lr', default=0.001, type=int,help='|初始学习率，训练中采用adam算法，训练轮次少时lr应调为0.0005以下|')
 parser.add_argument('--device', default='cuda', type=str,choices=['cuda','cpu'],help='|训练设备|')
 
 parser.add_argument('--TSF_column', default=[1,3], type=list, help='|TSF选择变量所在的列[0,1,2,...]|')
