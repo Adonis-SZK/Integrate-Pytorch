@@ -99,7 +99,7 @@ class OD(object):
                 for j in range(len(all_choose)):
                     cv2.rectangle(img_all, (all_choose[j][0],all_choose[j][1]), (all_choose[j][2],all_choose[j][3]),
                                   color=(0,255,0), thickness=2)
-                cv2.imshow(name_all[i]+'_99frame', img_all)
+                cv2.imshow(str(name_all[i])+'_99frame', img_all)
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
                 mask_choose=torch.ones(len(choose),dtype=bool)
@@ -116,7 +116,7 @@ class OD(object):
                     cv2.rectangle(img, (_xy[j][0],_xy[j][1]), (_xy[j][2],_xy[j][3]),color=(0,255,0), thickness=2)
                     cv2.putText(img,dict_dataset['class_list'][_class[j]], (_xy[j][0]+3,_xy[j][1]+10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 255, 0), 1)
-                cv2.imshow(name_all[i]+'_NMS_'+str(len(choose))+'frame', img)
+                cv2.imshow(str(name_all[i])+'_NMS_'+str(len(choose))+'frame', img)
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
                 cv2.imwrite('../result/' + args.name + '_' + name_all[i] + '.png', img)
