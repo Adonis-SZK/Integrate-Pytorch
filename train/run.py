@@ -7,12 +7,14 @@
 
 import torch
 import argparse
+import warnings
 from block.data_get import data_get
 from block.model_get import model_get
 from block.loss_get import loss_get
 from block.train_get import train_get
-from block.test_get import test_get
 from block.save_get import save_get
+from block.test_get import test_get
+warnings.filterwarnings('ignore')
 
 # 参数设置
 parser = argparse.ArgumentParser(description='!!!')
@@ -71,15 +73,10 @@ print('| model:{} | loss:{} |'.format(model,loss))
 # 开始训练
 if not args.model_test:
     model=train_get(args,dict_dataset,model,loss)
-
-# 测试
-test_get(args,dict_dataset,model)
-
+    
 # 模型保存
 if not args.model_test:
     save_get(args,model)
 
-
-
-
-
+# 测试
+test_get(args,dict_dataset,model)
