@@ -14,7 +14,7 @@ list_column=['name','class','Cx','Cy','w','h']
 for i in range(len(list_dir)):
     list_value = []
     root=ET.parse(path_read+'/'+list_dir[i]).getroot()
-    name=root.find('filename').text
+    name=root.find('filename').text.split('.')[0]
     for object in root.findall('object'):
         value=[name,
                object[0].text,
