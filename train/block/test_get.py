@@ -89,7 +89,7 @@ class OD(object):
                 if len(choose)==0:
                     print('!没有任何达标的预测框!')
                     break
-                choose = choose[0:min(len(choose),300)] #设定最小值初步筛选
+                choose = choose[0:min(len(choose),args.OD_plot_screen)]
                 choose = torch.stack(sorted(list(choose), key=lambda x: x[4], reverse=True)[:],axis=0)
                 choose[:,0:2]=choose[:,0:2]-1/2*choose[:,2:4]
                 choose[:,2:4]=choose[:,0:2]+choose[:,2:4]
