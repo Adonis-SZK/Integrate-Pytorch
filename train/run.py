@@ -7,14 +7,12 @@
 
 import torch
 import argparse
-import warnings
 from block.data_get import data_get
 from block.model_get import model_get
 from block.loss_get import loss_get
 from block.train_get import train_get
 from block.save_get import save_get
 from block.test_get import test_get
-warnings.filterwarnings('ignore')
 
 # 参数设置
 parser = argparse.ArgumentParser(description='!!!')
