@@ -13,17 +13,18 @@ def accuracy_precision(layer,threshold,pred,mask,true):
     correct_precision=0
     all_precision=0
     for i in range(layer):
-        pred_confidence=pred[i][mask[i]][:,4]
-        pred_class=torch.argmax(pred[i][mask[i]][:,5:],axis=1)
-        true_class=torch.argmax(true[i][mask[i]][:,5:],axis=1)
-        mask_back=(mask[i]==False)
-        pred_confidence_back=pred[i][mask_back][:,4]
-        mask_correct1=torch.where((pred_confidence>threshold)&(pred_class==true_class),True,False)
-        mask_correct2=torch.where(pred_confidence_back<threshold,True,False)
-        correct_accuracy+=len(pred_confidence[mask_correct1])+len(pred_confidence_back[mask_correct2])
-        all_accuracy+=len(pred_confidence)+len(pred_confidence_back)
-        correct_precision = len(pred_confidence[mask_correct1])
-        all_precision = len(pred_confidence)
+        if True in mask[i]:
+            pred_confidence=pred[i][mask[i]][:,4]
+            pred_class=torch.argmax(pred[i][mask[i]][:,5:],axis=1)
+            true_class=torch.argmax(true[i][mask[i]][:,5:],axis=1)
+            mask_back=(mask[i]==False)
+            pred_confidence_back=pred[i][mask_back][:,4]
+            mask_correct1=torch.where((pred_confidence>threshold)&(pred_class==true_class),True,False)
+            mask_correct2=torch.where(pred_confidence_back<threshold,True,False)
+            correct_accuracy+=len(pred_confidence[mask_correct1])+len(pred_confidence_back[mask_correct2])
+            all_accuracy+=len(pred_confidence)+len(pred_confidence_back)
+            correct_precision = len(pred_confidence[mask_correct1])
+            all_precision = len(pred_confidence)
     return correct_accuracy/all_accuracy,correct_precision/all_precision
 
 def iou(pred,true): #(x1,y1,x2,y2)
