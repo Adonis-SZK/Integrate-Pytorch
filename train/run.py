@@ -49,6 +49,7 @@ parser.add_argument('--OD_output', default=[[80,40,20],[3]], type=list, help='|O
 parser.add_argument('--OD_anchor', default=[[[10,13],[16,30],[33,23]],[[30,61],[62,45],[59,119]],[[116,90],[156,198],[373,326]]],type=list, help='|OD先验框|')
 parser.add_argument('--OD_confidence_threshold', default=0.8, type=float, help='|OD准确率计算的置信度阈值，基准为0.5|')
 parser.add_argument('--OD_plot', default=[True,3], type=list,help='|OD是否画出检测的图片及画出的图片数量|')
+parser.add_argument('--OD_plot_screen', default=300, type=int, help='|OD非极大值抑制前根据置信度排名筛选出的框数|')
 parser.add_argument('--OD_plot_threshold', default=0.2, type=float, help='|OD画图时消除同类别重叠框的iou阈值，越低筛选出的框越少|')
 
 args = parser.parse_args()
