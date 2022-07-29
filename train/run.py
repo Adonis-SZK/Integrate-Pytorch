@@ -20,8 +20,7 @@ parser.add_argument('--type', default='OD', type=str,choices=['TSF','OD'], help=
 parser.add_argument('--data_divide', default=[8,2], type=list, help='|训练集:测试集的比例划分:[a,b]|')
 parser.add_argument('--data_root', default='./dataset/', type=str,choices=['./dataset/'],help='|数据根目录路径|')
 parser.add_argument('--data_name', default='lamp', type=str, help='|数据文件名。TSF只需要一个csv文件，变量在TSF_column中指定;'
-                    'OD还需要两个子文件夹img和label，img中图片(.jpg/.png)必须事先处理成指定大小(用other中程序处理)，'
-                    'label中标签为csv文件，需有列名[name(图片名),class(类别),xmin,ymin,xmax,ymax](用other中程序处理)|')
+                    'OD还需要两个子文件夹img和label，label中标签为csv文件，需有列名[class,Cx,Cy,w,h]|')
 
 parser.add_argument('--model', default='YOLO5', type=str, choices=['LSTM','LSTM_CNN','SCINet','YOLO5'],help='|模型选择|')
 parser.add_argument('--model_param', default=[16,1], type=list,help='|模型参数:[1,2,...]|')
