@@ -119,7 +119,7 @@ class OD(object):
                 cv2.imshow(str(name_all[i])+'_NMS_'+len(choose)+'frame', img)
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
-                cv2.imwrite('../result/' + args.name + '_' + name_all[i] + '.png', img)
+                cv2.imwrite('../result/' + args.name + '_' + name_all[i] + '.jpg', img)
 
  # ------------------------------------------------------------------------------------------------------------------ #
 def test_get_loader(args,dict_dataset):
