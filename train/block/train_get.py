@@ -48,7 +48,7 @@ class OD(object):
                 optimizer.zero_grad()
                 loss_batch.backward()
                 optimizer.step()
-                if (item+1) % 1 == 0:
+                if (item+1) % 5 == 0:
                     accuracy,precision=metric.accuracy_precision(
                         len(args.OD_output[0]),args.OD_confidence_threshold,pred_batch,mask_batch,true_batch)
                     print('| {} | 迭代次数:{} | 本批量loss({}):{:.4f} 边框损失:{:.4f} 置信度损失:{:.4f} 分类损失:{:.4f} '
