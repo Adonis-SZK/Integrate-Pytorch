@@ -63,6 +63,7 @@ class OD(object):
         class_list=[]
         class_dict = {}
         for i in range(self.len_data):
+            file_name=str(dir_img[i].split('.')[0])
             img=(cv2.imread(path_img+'/'+dir_img[i])/255).astype(np.float32)
             df_label=pd.read_csv(path_label+'/'+dir_label[i])
             len_df_label=len(df_label)
@@ -86,7 +87,7 @@ class OD(object):
                     class_dict[class_name[j]][3] = max(class_dict[class_name[j]][2], frame[j, 2])
                     class_dict[class_name[j]][4] = max(class_dict[class_name[j]][4], frame[j, 3])
             confidence=np.zeros((len_df_label,1),dtype=np.float32)
-            self.list_label[i]=[str(df_label['name'][0]),np.concatenate((frame,confidence,class_onehot),axis=1)]
+            self.list_label[i]=[file_name,np.concatenate((frame,confidence,class_onehot),axis=1)]
         self.dict_dataset={}
         self.dict_dataset['class_list']=class_list
         self.dict_dataset['class_dict']=class_dict
