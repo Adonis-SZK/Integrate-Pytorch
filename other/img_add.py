@@ -1,4 +1,4 @@
-#
+#对图片进行HSV中H通道色彩变换和水平翻转
 import os
 import cv2
 import numpy as np
