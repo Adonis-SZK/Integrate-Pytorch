@@ -9,3 +9,4 @@ class save(object):
         self.args=args
     def _pkl(self,model):
         torch.save(model,'../result/'+self.args.name+'.pkl')
+        print('| 模型已保存 |')
