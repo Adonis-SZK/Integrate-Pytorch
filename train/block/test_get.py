@@ -62,7 +62,16 @@ class OD(object):
         test_loader=test_get_loader(args,dict_dataset)
         for test_all, mask_all, true_all, name_all in test_loader:
             with torch.no_grad():
-                pred_all = model(test_all)
+                n=len(dict_dataset['img_test'])//64+1
+                for i in range(n):
+                    test=test_all[i*64:(i+1)*64]
+                    pred = model(test)
+                    if i==0:
+                        pred_all=pred
+                    else:
+                        pred_all[0] = torch.cat([pred_all[0], pred[0]],axis=0)
+                        pred_all[1] = torch.cat([pred_all[1], pred[1]],axis=0)
+                        pred_all[2] = torch.cat([pred_all[2], pred[2]],axis=0)
         accuracy,precision = metric.accuracy_precision(
             len(args.OD_output[0]), args.OD_confidence_threshold, pred_all, mask_all, true_all)
         time_end = time.time()
@@ -126,7 +135,7 @@ def test_get_loader(args,dict_dataset):
     dict_choice={'OD': 'OD_dataset(args,dict_dataset)'
                  }
     return torch.utils.data.DataLoader(eval(dict_choice[args.type]),
-                                       batch_size=len(dict_dataset['img_test']),shuffle=True,drop_last=True)
+                                       batch_size=len(dict_dataset['img_test']),shuffle=False,drop_last=True)
 
 class OD_dataset(torch.utils.data.Dataset):
     def __init__(self,args,dict_dataset):
