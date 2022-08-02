@@ -55,8 +55,8 @@ class OD(object):
         args=self.args
         path_img=args.data_root+args.data_name+'/img'
         path_label=args.data_root+args.data_name+'/label'
-        dir_img = os.listdir(path_img)
-        dir_label = os.listdir(path_label)
+        dir_img = sorted(os.listdir(path_img))
+        dir_label = sorted(os.listdir(path_label))
         self.len_data=len(dir_img)
         self.list_img = [0 for i in range(self.len_data)]
         self.list_label = [0 for i in range(self.len_data)]
