@@ -49,7 +49,7 @@ class OD(object):
         L1_L2=self._L1_L2(pred,true,pred_x, pred_y,true_x, true_y)
         v=(4/(3.14159**2))*torch.square(torch.atan(true[:,2]/true[:,3])-torch.atan(pred[:,2]/pred[:,3]))
         with torch.no_grad():
-            alpha=v/(1-iou+v+0.001)
+            alpha=v/(1-iou+v+0.00001)
         return iou-L1_L2-alpha*v
     def _YOLO5(self,pred_batch,mask_batch,true_batch):
         loss1=0
