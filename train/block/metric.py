@@ -23,8 +23,8 @@ def accuracy_precision(layer,threshold,pred,mask,true):
             mask_correct2=torch.where(pred_confidence_back<threshold,True,False)
             correct_accuracy+=len(pred_confidence[mask_correct1])+len(pred_confidence_back[mask_correct2])
             all_accuracy+=len(pred_confidence)+len(pred_confidence_back)
-            correct_precision = len(pred_confidence[mask_correct1])
-            all_precision = len(pred_confidence)
+            correct_precision += len(pred_confidence[mask_correct1])
+            all_precision += len(pred_confidence)
     return correct_accuracy/all_accuracy,correct_precision/all_precision
 
 def iou(pred,true): #(x1,y1,x2,y2)
