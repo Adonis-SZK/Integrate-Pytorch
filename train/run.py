@@ -24,8 +24,8 @@ parser.add_argument('--data_name', default='lamp', type=str, help='|数据文件
 
 parser.add_argument('--model', default='YOLO5', type=str, choices=['LSTM','LSTM_CNN','SCINet','YOLO5'],help='|模型选择|')
 parser.add_argument('--model_param', default=[16,1], type=list,help='|模型参数:[1,2,...]|')
-parser.add_argument('--model_test', default=True, type=bool,choices=[True,False],help='|不训练直接测试模型，同时不保存模型|')
 parser.add_argument('--model_save', default=[True,'pkl'], type=list, help='|训练完后是否保存模型和保存的类型|')
+parser.add_argument('--model_test', default=True, type=bool,choices=[True,False],help='|不训练直接测试模型，同时不保存模型|')
 parser.add_argument('--model_continue', default=True, type=str,choices=[True,False],help='|是否接着训练已有模型|')
 
 parser.add_argument('--epoch', default=100, type=int,help='|训练轮数|')
@@ -47,11 +47,11 @@ parser.add_argument('--OD_class', default=1, type=int, help='|OD类别数|')
 parser.add_argument('--OD_smooth', default=[0.05,0.95], type=list, help='|OD标签平滑的值|')
 parser.add_argument('--OD_output', default=[[80,40,20],[3]], type=list, help='|OD输出形状|')
 parser.add_argument('--OD_anchor', default=[[[10,13],[16,30],[33,23]],[[30,61],[62,45],[59,119]],[[116,90],[156,198],[373,326]]],type=list, help='|OD先验框|')
-parser.add_argument('--OD_confidence_threshold', default=0.5, type=float, help='|OD准确率计算和筛选框的置信度阈值，不影响训练，基准为0.5|')
+parser.add_argument('--OD_confidence_threshold', default=0.8, type=float, help='|OD准确率计算和筛选框的置信度阈值，不影响训练，基准为0.5|')
 parser.add_argument('--OD_plot', default=[True,3], type=list, help='|OD是否画出并保存测试的图片和画出的图片数量|')
 parser.add_argument('--OD_plot_show', default=False, type=list, choices=[True,False], help='|OD是否在页面显示非极大值抑制前和后的图片|')
 parser.add_argument('--OD_plot_screen', default=300, type=int, help='|OD非极大值抑制前根据置信度排名筛选出的框数|')
-parser.add_argument('--OD_plot_threshold', default=0.2, type=float, help='|OD画图时消除同类别重叠框的iou阈值，越低筛选出的框越少|')
+parser.add_argument('--OD_plot_threshold', default=0.1, type=float, help='|OD画图时消除同类别重叠框的iou阈值，越低筛选出的框越少|')
 
 args = parser.parse_args()
 args.name=args.type+'_'+args.model+'_'+args.data_name
