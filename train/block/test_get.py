@@ -62,9 +62,9 @@ class OD(object):
         test_loader=test_get_loader(args,dict_dataset)
         for test_all, mask_all, true_all, name_all in test_loader:
             with torch.no_grad():
-                n=len(dict_dataset['img_test'])//64+1
+                n=len(dict_dataset['img_test'])//32+1
                 for i in range(n):
-                    test=test_all[i*64:(i+1)*64]
+                    test=test_all[i*32:(i+1)*32]
                     pred = model(test)
                     if i==0:
                         pred_all=pred
