@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 #设置
 # -------------------------------------------------------------------------------------------------------------------- #
-path_label=r'.\label'
-save_label=r'.\label_save'
+path_label=r'./label'
+save_label=r'./label_save'
 list_columns=['class','Cx','Cy','w','h']
 if not os.path.exists(save_label):
     os.makedirs(save_label)
