@@ -55,7 +55,7 @@ parser.add_argument('--OD_plot_threshold', default=0.1, type=float, help='|OD画
 
 args = parser.parse_args()
 args.name=args.type+'_'+args.model+'_'+args.data_name
-print('| args: |',args)
+print('| args:{} |'.format(args))
 
 # 训练设置
 torch.manual_seed(999) #为CPU设置随机种子
