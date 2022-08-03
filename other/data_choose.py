@@ -16,8 +16,8 @@ if not os.path.exists(save_label):
 # -------------------------------------------------------------------------------------------------------------------- #
 #程序
 df = pd.read_csv(path)
-dir_img = os.listdir(path_img)
-dir_label = os.listdir(path_label)
+dir_img = sorted(os.listdir(path_img))
+dir_label = sorted(os.listdir(path_label))
 number=df['number'].values
 count=0
 for i in range(len(number)):
