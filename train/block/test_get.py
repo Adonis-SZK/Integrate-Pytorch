@@ -150,7 +150,7 @@ class OD_dataset(torch.utils.data.Dataset):
     def __getitem__(self, index):
         args=self.args
         dict_dataset=self.dict_dataset
-        test=torch.tensor(dict_dataset['img_test'][index]).to(args.device)
+        test=torch.tensor(dict_dataset['img_test'][index]/255).type(torch.float32).to(args.device)
         list_mask=[0 for i in range(len(args.OD_output[0]))]
         list_label=[0 for i in range(len(args.OD_output[0]))]
         for i,stride in enumerate(dict_dataset['stride']):
