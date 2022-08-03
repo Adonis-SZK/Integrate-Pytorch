@@ -4,11 +4,11 @@ import cv2
 import pandas as pd
 #设置
 # -------------------------------------------------------------------------------------------------------------------- #
-path=r'.\all.csv'
-path_img=r'.\img'
-path_label=r'.\label'
-save_img=r'.\img_save'
-save_label=r'.\label_save'
+path=r'./all.csv'
+path_img=r'./img'
+path_label=r'./label'
+save_img=r'./img_save'
+save_label=r'./label_save'
 if not os.path.exists(save_img):
     os.makedirs(save_img)
 if not os.path.exists(save_label):
