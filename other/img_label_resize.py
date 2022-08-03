@@ -16,8 +16,8 @@ if not os.path.exists(save_label):
     os.makedirs(save_label)
 # -------------------------------------------------------------------------------------------------------------------- #
 #程序
-dir_img = os.listdir(path_img)
-dir_label = os.listdir(path_label)
+dir_img = sorted(os.listdir(path_img))
+dir_label = sorted(os.listdir(path_label))
 for i in range(len(dir_img)):
     img=cv2.imread(path_img+'/'+dir_img[i])
     label=pd.read_csv(path_label+'/'+dir_label[i])
