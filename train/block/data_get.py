@@ -64,7 +64,7 @@ class OD(object):
         class_dict = {}
         for i in range(self.len_data):
             file_name=str(dir_img[i].split('.')[0])
-            img=(cv2.imread(path_img+'/'+dir_img[i])/255).astype(np.float32)
+            img=cv2.imread(path_img+'/'+dir_img[i])
             df_label=pd.read_csv(path_label+'/'+dir_label[i])
             len_df_label=len(df_label)
             frame=df_label[['Cx','Cy','w','h']].values.astype(np.int32)
