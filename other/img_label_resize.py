@@ -5,10 +5,10 @@ import numpy as np
 import pandas as pd
 #设置
 # -------------------------------------------------------------------------------------------------------------------- #
-path_img=r'.\img'
-path_label=r'.\label'
-save_img=r'.\img_save'
-save_label=r'.\label_save'
+path_img=r'./img'
+path_label=r'./label'
+save_img=r'./img_save'
+save_label=r'./label_save'
 size=640 #图片变成的形状
 if not os.path.exists(save_img):
     os.makedirs(save_img)
