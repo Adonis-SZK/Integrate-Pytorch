@@ -68,7 +68,8 @@ torch.backends.cudnn.benchmark = False #在训练前cuDNN会先搜寻每个卷�
 dict_dataset=data_get(args)
 model=model_get(args).to(args.device)
 loss=loss_get(args)
-print('| model:{} | loss:{} |'.format(model,loss))
+print('| 训练数据:{} | 测试数据:{} |'.format(len(dict_dataset['img_train']),len(dict_dataset['img_test'])))
+print('| 模型:{} | 损失函数:{} |'.format(args.model,args.loss))
 
 # 开始训练
 if not args.model_test:
