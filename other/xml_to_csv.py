@@ -5,8 +5,8 @@ import pandas as pd
 import xml.etree.cElementTree as ET
 #设置
 # -------------------------------------------------------------------------------------------------------------------- #
-path_label=r'.\label'
-save_label=r'.\label_save'
+path_label=r'./label'
+save_label=r'./label_save'
 if not os.path.exists(save_label):
     os.makedirs(save_label)
 # -------------------------------------------------------------------------------------------------------------------- #
