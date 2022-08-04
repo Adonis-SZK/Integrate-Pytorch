@@ -63,10 +63,10 @@ class OD(object):
                 pred_mask[:,2:4] = 4*pred_mask[:,2:4] #原版会对pred_mask[:, 2:4]做一个平方，此处没加平方，但值域一致，且线性操作不影响
                 ciou=self._ciou(pred_mask[:,0:4],true_mask[:,0:4])
                 mask_batch_back=(mask_batch[i]==False)
-                loss_confidence = 0.8*self.loss_confidence(pred_batch[i][mask_batch_back][:,4], true_batch[i][mask_batch_back][:,4])
-                loss_confidence += 0.2*self.loss_confidence(pred_batch[i][mask_batch[i]][:,4],torch.ones(len(ciou)).to(self.args.device))
+                loss_confidence = 0.9*self.loss_confidence(pred_batch[i][mask_batch_back][:,4], true_batch[i][mask_batch_back][:,4])
+                loss_confidence += 0.1*self.loss_confidence(pred_batch[i][mask_batch[i]][:,4],torch.ones(len(ciou)).to(self.args.device))
                 # !!!原YOLO5用CIOU替代置信度标签 torch.clamp(ciou.detach(),0,1)   |   torch.ones(len(ciou)).to(self.args.device)
-                # 为了提高精确度，标签和非标签分开计算，标签很少给0.2，但实际占比也很高
+                # 为了提高精确度，标签和非标签分开计算，标签很少给0.1，但实际占比也很高
                 loss_class=self.loss_class(pred_mask[:,5:],true_mask[:,5:])
                 loss1+=self.args.loss_param[0][i]*self.args.loss_param[i+1][0]*(1-torch.mean(ciou))
                 loss2+=self.args.loss_param[0][i]*self.args.loss_param[i+1][1]*loss_confidence
