@@ -79,9 +79,9 @@ class OD(object):
         accuracy=torch.mean(accuracy)
         precision=torch.mean(precision)
         time_end = time.time()
-        print('| 模型:{} | 数据集:{} | 图片大小:{} | 类别数:{} | 置信度阈值:{} | 批量大小:{} | 损失函数:{} |'
-              .format(args.model, args.data_name, args.OD_size, args.OD_class, args.OD_confidence_threshold,
-                      args.batch, args.loss))
+        print('| 模型:{} | 数据集:{} | 图片大小:{} | 类别数:{} | 批量大小:{} | 损失函数:{} | 置信度阈值:{} |'
+              .format(args.model, args.data_name, args.OD_size, args.OD_class, args.batch, args.loss,
+                      args.OD_confidence_threshold))
         print('| 测试集数量:{} | 测试时间:{:.2f}s | 准确率:{:.4f} 精确率:{:.4f} |'
               .format(i+1, time_end - time_start, accuracy, precision))
         if args.OD_plot[0]:
