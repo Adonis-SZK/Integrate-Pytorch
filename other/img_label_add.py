@@ -7,8 +7,8 @@ import pandas as pd
 # -------------------------------------------------------------------------------------------------------------------- #
 path_img= r'./img'
 path_label= r'./label'
-save_img=r'.\img_save'
-save_label=r'.\label_save'
+save_img=r'./img_save'
+save_label=r'./label_save'
 HSV=True
 flip=True
 noise=True
